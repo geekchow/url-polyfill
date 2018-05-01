@@ -275,7 +275,12 @@
 
       'password': { // TODO
         get: function() {
-          return '';
+          var match = this._anchorElement.href.match(/^(http[s]?:\/\/)(.*):(.*)@(.*)/i)
+          if(match) {
+            return match[3];
+          } else {
+            return undefined;
+          };
         },
         set: function(value) {
         },
@@ -284,7 +289,12 @@
 
       'username': { // TODO
         get: function() {
-          return '';
+          var match = this._anchorElement.href.match(/^(http[s]?:\/\/)(.*):(.*)@(.*)/i)
+          if(match) {
+            return match[2];
+          } else {
+            return undefined;
+          };
         },
         set: function(value) {
         },
